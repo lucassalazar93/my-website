@@ -1,0 +1,121 @@
+#service-packages {
+    background-color: #021f40;
+    color: white;
+}
+
+/* Contenedor de descuentos a ambos lados */
+.discount-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.discount-image {
+    width: 250px; /* Aumenta el tamaño de la imagen */
+    height: auto;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.left-discount {
+    position: absolute;
+    left: -200px; /* Ajusta la posición a la izquierda */
+}
+
+.right-discount {
+    position: absolute;
+    right: -200px; /* Ajusta la posición a la derecha */
+}
+
+/* Estilo uniforme para las tarjetas */
+.package {
+    border: 2px solid #00bfff;
+    padding: 1rem;
+    background-color: #021f40;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    height: 650px; /* Aumenté la altura de las tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Asegura que todas las imágenes dentro de las tarjetas tengan el mismo tamaño */
+.package-image {
+    width: 100%;
+    height: 400px; /* Aumenté la altura para que las imágenes sean más grandes */
+    object-fit: contain; /* Asegura que las imágenes se ajusten al contenedor sin ser recortadas */
+    margin-bottom: 1rem;
+}
+
+.btn-package {
+    background-color: #72DBF2;
+    color: #021526;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-top: 1rem; /* Añadí margen superior para separar el botón del contenido */
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Transiciones para suavizar el cambio */
+}
+
+.btn-package:hover {
+    background-color: #021526; /* Color de fondo al pasar el cursor */
+    color: #72DBF2; /* Color del texto al pasar el cursor */
+    border: 2px solid #72DBF2; /* Borde al pasar el cursor */
+}
+
+/* Estilo para el botón de cuenta regresiva */
+.countdown-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 20px 40px; /* Aumenté el padding para que el botón sea más grande */
+    border-radius: 10px; /* Redondeo un poco más los bordes */
+    font-weight: bold;
+    font-size: 2rem; /* Aumenté el tamaño del texto del reloj */
+    display: inline-block;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Efecto de movimiento para el botón */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.old-price {
+    text-decoration: line-through; /* Aplica el tachado */
+    color: #eb6137; /* Cambia el color del texto a rojo o el color que prefieras */
+}
+
+/* Estilo del título con la línea en el medio */
+.section-title {
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff; /* Color del texto del título */
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Ajusta la distancia de la línea al texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Ancho de la línea */
+    height: 4px; /* Altura de la línea */
+    background-color: #00bfff; /* Color azul claro */
+    border-radius: 2px; /* Redondeo de las esquinas de la línea */
+}

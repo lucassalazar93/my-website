@@ -1,38 +1,962 @@
-.App {
-  text-align: center;
+/* ESTILOS GENERALES */
+body {
+  background-color: #021526 !important; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2.display-4, h2.section-title, #web-presence h2, h2.testimonial-title {
+  font-size: 2.5rem; /* Tamaño grande para títulos */
+  font-weight: bold; /* Texto en negrita */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center; /* Centra los títulos */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  color: #ffffff; /* Texto blanco puro */
+  font-family: 'Montserrat', sans-serif; /* Fuente moderna y legible */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h5 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+p.lead, #web-presence p.lead {
+  font-size: 1.25rem; /* Tamaño del texto de los párrafos */
+  font-weight: 400;
+  margin-bottom: 2rem;
+  line-height: 1.5; /* Espaciado entre líneas */
+  padding: 0 20px; /* Espaciado interno para los párrafos */
+  text-align: justify; /* Alineación justificada para los párrafos */
+  color: #ffffff; /* Texto blanco */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+  position: sticky; /* Fija la barra de navegación en la parte superior */
+  top: 0;
+  z-index: 1000; /* Asegura que la barra esté sobre otros elementos */
+  background-color: rgba(28, 31, 46, 0.9); /* Fondo semitransparente */
+  backdrop-filter: blur(10px); /* Desenfoque del fondo detrás de la barra */
+  transition: background-color 0.3s ease; /* Transición suave del fondo al hacer scroll */
+}
+
+.navbar.scrolled {
+  background-color: #1c1f2e; /* Color de fondo al hacer scroll */
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem; /* Tamaño del logo o nombre de la marca */
+  font-weight: bold;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centra los elementos de navegación */
+}
+
+.navbar-nav .nav-item {
+  margin-left: 20px; /* Espaciado entre los elementos de la barra de navegación */
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase; /* Convierte el texto de los enlaces a mayúsculas */
+  transition: color 0.3s, transform 0.3s; /* Transición suave para color y tamaño al pasar el cursor */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #72DBF2; /* Color azul al pasar el cursor */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño del texto */
+}
+
+.navbar-toggler {
+  border: none; /* Sin borde para el botón de navegación en móviles */
+  background: transparent; /* Fondo transparente */
+}
+
+.navbar-toggler-icon {
+  color: #fff; /* Color del icono del menú de navegación en móviles */
+}
+
+/* MENÚ DESPLEGABLE */
+.nav-item.dropdown .nav-link {
+  color: #fff;
+  cursor: pointer; /* Muestra el puntero al pasar sobre el enlace desplegable */
+}
+
+.dropdown-menu {
+  background-color: rgba(28, 31, 46, 0.9); /* Fondo oscuro semitransparente para el menú desplegable */
+  border: none; /* Sin bordes */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra para el menú desplegable */
+}
+
+.dropdown-item {
+  color: #fff;
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.dropdown-item:hover {
+  background-color: #72DBF2; /* Fondo azul al pasar el cursor */
+  color: #1c1f2e; /* Texto oscuro al pasar el cursor */
+}
+
+/* ENCABEZADO */
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('./images/panal-3.webp') no-repeat center center; /* Imagen de fondo centrada */
+  background-size: cover; /* Escala la imagen de fondo para cubrir toda la pantalla */
+  height: 100vh; /* Altura completa de la ventana */
+  z-index: 1; /* Asegura que el encabezado esté sobre otros elementos */
+}
+
+header::before {
+  content: ''; /* Elemento vacío para aplicar una superposición */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Superposición negra semitransparente */
+  z-index: -1; /* Coloca la superposición detrás del contenido del encabezado */
+}
+
+header .container {
+  padding: 2rem; /* Espaciado interno para el contenedor */
+  border-radius: 10px; /* Esquinas redondeadas */
+  position: relative;
+}
+
+header img {
+  max-width: 100%; /* Imagen responsive */
+  filter: drop-shadow(0 0 10px #72DBF2); /* Sombra azul alrededor de la imagen */
+  animation: float 3s ease-in-out infinite; /* Animación de flotación para la imagen */
+}
+
+/* Efecto de flotación en el logo */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-10px); /* Flota hacia arriba y abajo */
   }
+}
+
+/* ESTILOS DE BOTONES */
+.text-center {
+  text-align: center; /* Centra el contenido dentro del div */
+}
+
+.btn-funnel {
+  display: inline-block; /* Asegura que el botón no se estire al 100% del contenedor */
+  margin: 0 auto; /* Esto ayudará a centrar el botón si el texto ya está centrado */
+}
+
+.button-center {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el botón en la pantalla */
+}
+
+.btn-outline-light, .btn-funnel {
+  padding: 1em 2em !important;
+  border: 2px solid #72DBF2 !important; /* Borde azul */
+  color: #fff !important;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s !important; /* Transición suave para el color y el tamaño */
+  font-size: 1.2rem !important; /* Tamaño del texto del botón */
+  font-weight: bold !important; /* Texto en negrita */
+  border-radius: 50px !important; /* Botones redondeados */
+}
+
+.btn-outline-light:hover, .btn-funnel:hover {
+  background-color: #72DBF2 !important; /* Fondo azul al pasar el cursor */
+  color: #1E3859 !important; /* Texto oscuro al pasar el cursor */
+  transform: scale(1.05) !important; /* Aumenta ligeramente el tamaño del botón */
+  box-shadow: 0 10px 20px rgba(114, 219, 242, 0.5) !important; /* Sombra azul */
+}
+
+.btn-funnel {
+  background-color: #1E3859 !important; /* Fondo oscuro para el botón funnel */
+  animation: pulse 2s infinite !important; /* Animación de pulsación */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta el tamaño en el punto medio de la animación */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animación de desplazamiento del logo */
+@keyframes slideDown {
+  0% { 
+    transform: translateY(-100%); 
+    opacity: 0; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.logo-animation {
+  animation: slideDown 1.5s ease-out forwards; /* Desplaza el logo hacia abajo con una animación suave */
+}
+
+/* SECCIÓN ABOUT */
+#about {
+  padding: 4rem 0; /* Espaciado interno para la sección */
+  background-color: #021526; /* Fondo oscuro */
+  text-align: center; /* Centra el texto */
+}
+
+#about h2 {
+  margin-bottom: 1rem; /* Margen inferior para los títulos */
+}
+
+#about .col-md-7 {
+  text-align: left; /* Alinea el texto a la izquierda en pantallas medianas en adelante */
+}
+
+.highlighted-image {
+  border: 8px solid #72DBF2; /* Borde azul alrededor de la imagen */
+  box-shadow: 0 0 20px rgba(114, 219, 242, 0.8); /* Sombra azul alrededor de la imagen */
+  transition: transform 0.3s; /* Transición suave para la transformación */
+}
+
+.highlighted-image:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+}
+
+/* Contenedor principal */
+#moving-images {
+  background-color: #021526; /* Color de fondo */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estilos de la imagen */
+.image-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+
+.moving-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Alineación del contenido */
+.container {
+  position: relative;
+  z-index: 2; /* Asegura que el texto y el botón estén sobre la imagen */
+}
+
+/* Estilos del botón */
+.btn-funnel {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fff; /* Borde blanco */
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-funnel:hover {
+  background-color: #72DBF2;
+  color: #021526; /* Cambia el color de texto al color del fondo */
+}
+
+/* SECCIÓN PARA QUIÉN */
+#for-whom {
+  padding: 3rem 0; /* Espaciado interno para la sección */
+  background-color: #021526; /* Fondo oscuro */
+  text-align: center; /* Centra el contenido */
+}
+
+#for-whom .service-item, #for-whom-no .service-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem; /* Espaciado interno para los elementos */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 0.5rem; /* Margen inferior entre los elementos */
+  text-align: left; /* Alinea el texto a la izquierda */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para el tamaño y la sombra */
+}
+
+#for-whom .service-item {
+  background-color: #17c23c; /* Fondo verde para elementos positivos */
+  box-shadow: 0 10px 20px rgba(2, 223, 13, 0.74); /* Sombra verde */
+}
+
+#for-whom-no .service-item {
+  background-color: #fa1d30f1; /* Fondo rojo para elementos negativos */
+  box-shadow: 0 10px 20px rgba(255, 18, 1, 0.692); /* Sombra roja */
+}
+
+#for-whom .service-icon, #for-whom-no .service-icon {
+  width: 24px; /* Tamaño del icono */
+  height: 24px;
+  margin-right: 1rem; /* Margen derecho para separar el icono del texto */
+}
+
+#for-whom p.lead, #for-whom-no p.lead {
+  margin-bottom: 0; /* Sin margen inferior para los párrafos */
+}
+
+/* Efecto de brillo al pasar el cursor */
+#for-whom .service-item:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño del elemento */
+  box-shadow: 0 15px 30px rgba(2, 223, 13, 1); /* Intensifica la sombra verde */
+  background-color: #1ef144; /* Cambia el fondo a un verde más brillante */
+}
+
+#for-whom-no .service-item:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño del elemento */
+  box-shadow: 0 15px 30px rgba(255, 18, 1, 1); /* Intensifica la sombra roja */
+  background-color: #ec1e2f; /* Cambia el fondo a un rojo más brillante */
+}
+
+/* SECCIÓN DE CLIENTES */
+#clientes {
+  padding: 3rem 0; /* Espaciado interno para la sección */
+  background-color: #021f40; /* Fondo oscuro */
+  text-align: center; /* Centra el contenido */
+}
+
+.client-img {
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para el tamaño y la sombra */
+  width: 100px; /* Tamaño de la imagen del cliente */
+  height: 100px;
+  margin: 10px; /* Margen alrededor de la imagen */
+}
+
+.client-img:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+  box-shadow: 0 10px 20px #72DBF2; /* Sombra azul */
+}
+
+/* Estilos para la sección de testimonios */
+#testimonials {
+  text-align: center;
+  padding: 5rem 0;
+  background-color: #021f40; /* Ajusta el color de fondo si es necesario */
+}
+
+.carousel-inner {
+  max-width: 800px; /* Ajusta el ancho máximo del contenido */
+  margin: 0 auto; /* Centra el carrusel horizontalmente */
+}
+
+.testimonial {
+  padding: 1.5rem 2rem;
+  background-color: #1e3859;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: center; /* Centra el texto dentro del contenedor del testimonio */
+}
+
+.testimonial p {
+  margin-bottom: 0.5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Ajusta el color de los íconos según el fondo */
+}
+
+/* SECCIÓN DE BENEFICIOS */
+#benefits {
+  padding: 3rem 0; /* Espaciado interno para la sección */
+  background-color: #1e2235; /* Fondo oscuro */
+  text-align: center; /* Centra el contenido */
+}
+
+#benefits p.lead {
+  color: #ffffff; /* Texto blanco */
+}
+
+#benefits .benefit-image {
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 10px 20px rgba(114, 219, 242, 0.3); /* Sombra azul */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para la transformación y la sombra */
+}
+
+#benefits .benefit-image:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+  box-shadow: 0 15px 30px rgba(114, 219, 242, 0.6); /* Sombra más grande al pasar el cursor */
+}
+
+/* ICONO FLOTANTE DE WHATSAPP */
+.whatsapp-float {
+  position: fixed; /* Fija la posición del icono en la pantalla */
+  width: 60px; /* Tamaño del icono */
+  height: 60px;
+  bottom: 40px; /* Distancia desde la parte inferior */
+  right: 40px; /* Distancia desde la parte derecha */
+  border-radius: 50px; /* Icono redondeado */
+  text-align: center;
+  font-size: 30px;
+  z-index: 1000; /* Asegura que el icono esté sobre otros elementos */
+  animation: shake 3s ease-in-out infinite; /* Aplicar la animación de sacudida */
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px); /* Mueve el icono ligeramente a la izquierda */
+  }
+  50% {
+    transform: translateX(10px); /* Mueve el icono ligeramente a la derecha */
+  }
+  75% {
+    transform: translateX(-10px); /* Mueve el icono ligeramente a la izquierda */
+  }
+}
+
+.whatsapp-float img {
+  margin-top: 5px;
+  transition: transform 0.3s; /* Transición suave para el tamaño del icono */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.2); /* Agranda el icono cuando el usuario pasa el ratón sobre él */
+}
+
+/* ESTILOS RESPONSIVOS */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 50px 0; /* Ajusta el padding en pantallas más pequeñas */
+  }
+
+  header img {
+    max-width: 80%;
+    margin: 20px 0;
+  }
+
+  .btn-outline-light, .btn-funnel {
+    padding: 0.8em 1.5em; /* Reduce el padding de los botones en pantallas pequeñas */
+    font-size: 1rem; /* Reduce el tamaño del texto en los botones */
+  }
+
+  .button-center {
+    top: 70%; /* Ajusta la posición del botón centrado */
+  }
+
+  #about {
+    padding: 2rem 0; /* Reduce el padding de la sección en pantallas pequeñas */
+  }
+
+  #about .col-md-7 {
+    text-align: center; /* Centra el texto en pantallas pequeñas */
+  }
+
+  #about .col-md-5 {
+    margin-top: 20px; /* Añade un margen superior en pantallas pequeñas */
+  }
+
+  #moving-images .text-container {
+    text-align: center; /* Centra el texto en pantallas pequeñas */
+    padding: 0; /* Elimina el padding en pantallas pequeñas */
+  }
+
+  #moving-images .image-wrapper {
+    margin-right: 0; /* Elimina el margen derecho en pantallas pequeñas */
+  }
+
+  #for-whom, #clientes, #testimonials, #benefits {
+    padding: 2rem 0; /* Reduce el padding de las secciones en pantallas pequeñas */
+  }
+
+  .client-img {
+    margin: 10px auto;
+    display: block; /* Centra las imágenes de los clientes en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  h2.display-4, h2.section-title {
+    font-size: 2rem; /* Reduce el tamaño de los títulos en pantallas muy pequeñas */
+  }
+
+  p.lead {
+    font-size: 1rem; /* Reduce el tamaño del texto en los párrafos */
+  }
+
+  header img {
+    max-width: 100%;
+  }
+
+  .btn-outline-light, .btn-funnel {
+    font-size: 0.9rem; /* Reduce aún más el tamaño del texto en los botones */
+  }
+}
+
+/* MENÚ DE PANTALLA COMPLETA */
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(28, 31, 46, 0.95); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el contenido vertical y horizontalmente */
+  transform: translateY(-100%); /* Oculta el menú fuera de la pantalla */
+  transition: transform 0.3s ease-in-out; /* Transición suave al abrir y cerrar el menú */
+  z-index: 2000; /* Asegura que el menú esté sobre otros elementos */
+}
+
+.fullscreen-menu.open {
+  transform: translateY(0); /* Muestra el menú al aplicar la clase .open */
+}
+
+.fullscreen-menu ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Sin padding para la lista */
+}
+
+.fullscreen-menu ul li {
+  margin: 1rem 0; /* Margen entre los elementos de la lista */
+}
+
+.fullscreen-menu ul li a {
+  color: #fff;
+  font-size: 2rem; /* Tamaño del texto del menú */
+  text-transform: uppercase; /* Convierte el texto del menú a mayúsculas */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  transition: color 0.3s; /* Transición suave para el color */
+}
+
+.fullscreen-menu ul li a:hover {
+  color: #72DBF2; /* Color azul al pasar el cursor */
+}
+
+/* ANIMACIÓN DESLIZANTE */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.button-slide-in {
+  animation: slideInFromRight 1s ease-out forwards; /* Animación de desplazamiento desde la derecha */
+}
+
+/* FONDO PARALLAX */
+.parallax {
+  background-image: url('images/fondo-panal2.png');
+  height: 100vh;
+  background-attachment: fixed; /* Fondo fijo para el efecto parallax */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* CUADRÍCULA EN PANAL */
+.honeycomb {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  padding-bottom: 86.6%; /* Altura basada en el ancho para crear hexágonos */
+  clip-path: polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%
+  );
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cell img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
+
+.cell:hover img {
+  transform: scale(1.2);
+}
+
+/* ANIMACIÓN DE ABEJAS */
+.bee-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120px; /* Ajusta el tamaño de la abeja aquí */
+  height: 120px;
+  pointer-events: none; /* Esto asegura que la abeja no interfiera con clics y otros eventos */
+  z-index: 1000; /* Asegúrate de que la abeja esté por encima de otros elementos */
+}
+
+/* Sección de Importancia de la Presencia Web */
+#web-presence {
+  background-color: #021526; /* Mismo color de fondo oscuro */
+  color: #ffffff; /* Texto en blanco */
+  padding: 5rem 0;
+  text-align: center;
+}
+
+#web-presence h2 {
+  font-size: 2.5rem; /* Tamaño similar al de Diseño Responsivo */
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem; /* Reduce el margen inferior del título */
+  color: #ffffff; /* Texto en blanco */
+}
+
+#web-presence p.lead {
+  font-size: 1.25rem; /* Tamaño del texto similar */
+  font-weight: 400;
+  margin-bottom: 1rem; /* Reduce el margen inferior del párrafo */
+  line-height: 1.5;
+  color: #ffffff; /* Texto en blanco */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra de texto suave */
+}
+
+.presence-carousel img {
+  max-width: 1100px !important; /* Tamaño máximo de la imagen */
+  margin: 0 auto !important;
+  filter: drop-shadow(0 0 10px #72DBF2) !important; /* Sombra similar para la imagen */
+}
+
+.btn-presence {
+  display: inline-block;
+  padding: 1em 2em;
+  border: 2px solid #72DBF2; /* Borde azul similar */
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  border-radius: 50px; /* Bordes redondeados */
+  margin-top: 2rem; /* Espaciado del botón con la imagen */
+}
+
+.btn-presence:hover {
+  background-color: #ffffff !important;
+  color: #021f40 !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 10px 20px rgba(119, 230, 255, 0.616) !important; /* Sombra azul */
+}
+
+/* Sección de Servicios Adicionales ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ */
+#additional-services {
+  background-color: #021f40 !important; /* Fondo oscuro */
+  color: #ffffff !important; /* Texto blanco */
+  padding: 5rem 0;
+  text-align: center;
+}
+
+#additional-services .section-title {
+  margin-bottom: 2.5rem;
+  font-size: 2.8rem; /* Aumentar ligeramente el tamaño del título */
+  text-transform: uppercase;
+  color: #ffffff !important; /* Texto blanco para el título */
+  letter-spacing: 2px; /* Añadir espaciado entre letras para un toque más elegante */
+}
+
+#additional-services .section-description-row {
+  margin-bottom: 2.5rem; /* Espacio entre las filas de descripciones */
+}
+
+#additional-services .section-description-box {
+  padding: 2rem;
+  background-color: #1e3859;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-align: left; /* Alineación a la izquierda para el texto */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#additional-services .section-description-box:hover {
+  transform: translateY(-5px); /* Efecto de levantar la caja al pasar el cursor */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+#additional-services .left-box {
+  margin-left: 0;
+}
+
+#additional-services .right-box {
+  margin-left: auto;
+}
+
+#additional-services .section-subtitle {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  color: #72DBF2 !important; /* Subtítulo en color azul */
+  font-weight: 500;
+}
+
+#additional-services .section-description {
+  font-size: 1.2rem;
+  color: #ffffff !important; /* Texto descriptivo en un tono más claro */
+  line-height: 1.8; /* Aumentar el interlineado para mejorar la legibilidad */
+}
+
+.service-box {
+  padding: 2rem;
+  background-color: #1e3859;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Asegura que las tarjetas ocupen toda la altura disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que el contenido dentro esté distribuido */
+}
+
+
+.service-box img {
+  max-height: 450px; /* Establece una altura máxima para las imágenes */
+  object-fit: cover; /* Asegura que las imágenes cubran el área establecida sin distorsionarse */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.service-box:hover {
+  transform: translateY(-10px); /* Efecto de levantar la caja al pasar el cursor */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.service-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+  margin-bottom: 2rem; /* Más espacio debajo de la imagen */
+}
+
+.service-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #72DBF2 !important; /* Color azul para el título del servicio */
+  text-transform: uppercase; /* Convertir título a mayúsculas */
+  letter-spacing: 1.5px; /* Añadir espaciado entre letras */
+}
+
+.service-description {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff !important; /* Texto descriptivo en un tono más claro */
+  line-height: 1.7; /* Aumentar el interlineado */
+  padding: 0 15px; /* Añadir un poco de padding a los lados para mejorar la legibilidad */
+}
+
+.btn-service {
+  padding: 0.8em 2em !important;
+  background-color: #72DBF2 !important;
+  color: #021526 !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  border-radius: 50px !important;
+  transition: background-color 0.3s, transform 0.3s !important;
+}
+
+.btn-service:hover {
+  background-color: #1E3859 !important;
+  color: #ffffff !important;
+  transform: scale(1.05) !important; /* Suave aumento del tamaño al pasar el cursor */
+}
+
+
+/* Sección Por Qué Elegirme */
+#why-choose-me {
+  background-color: #021526; /* Fondo oscuro similar */
+  color: #ffffff; /* Texto blanco */
+  text-align: center; /* Centra el contenido */
+  padding: 5rem 0; /* Espaciado interno */
+}
+
+#why-choose-me .section-title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+#why-choose-me .section-paragraph {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-content {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que el video cubra todo el área sin distorsionarse */
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  #why-choose-me .section-title {
+    font-size: 2rem;
+  }
+
+  #why-choose-me .section-paragraph {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .video-wrapper {
+    margin-bottom: 2rem; /* Añade espacio entre el video y el texto en pantallas pequeñas */
+  }
+}
+
+
+.service-packages-section {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.countdown-timer {
+  margin-bottom: 30px;
+}
+
+.timer {
+  font-size: 2rem;
+  color: #ff4747;
+}
+
+.packages {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service-package {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  width: 22%;
+  margin: 10px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.service-package h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.service-package .price {
+  margin: 20px 0;
+}
+
+.service-package .old-price {
+  text-decoration: line-through;
+  color: #ff4747;
+  margin-right: 10px;
+}
+
+.service-package .new-price {
+  font-size: 1.5rem;
+  color: #47ff8c;
+}
+
+.service-package .discount {
+  background-color: #ff4747;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.cta-button {
+  background-color: #ff4747;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff7373;
+}
+
+
+.video-wrapper {
+  width: 100%;
+  max-width: 1200px; /* Aumenta este valor para hacer el video más grande */
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-content {
+  width: 120%;
+  height: auto;
+  min-height: 450px; /* Asegura una altura mínima */
+  object-fit: cover;
+  border-radius: 10px;
 }

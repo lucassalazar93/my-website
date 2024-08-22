@@ -1,0 +1,96 @@
+/* ESTILOS DEL FOOTER */
+
+.footer-section {
+    background-color: #1e2235; /* Fondo oscuro similar al resto de la página */
+    color: #ffffff; /* Texto en blanco */
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+.footer-column h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff; /* Asegura que el título sea blanco */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #72DBF2; /* Color azul claro para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Texto blanco al pasar el cursor */
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #72DBF2; /* Color azul claro para los íconos */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.social-icons a:hover {
+    color: #ffffff; /* Íconos blancos al pasar el cursor */
+}
+
+.subscribe-form .form-control {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #021526; /* Fondo oscuro para la entrada de suscripción */
+    color: #ffffff; /* Texto blanco dentro de la entrada */
+}
+
+.subscribe-form .form-control::placeholder {
+    color: #b2b2b2; /* Color claro para el texto de marcador de posición */
+}
+
+.btn-subscribe {
+    background-color: #72DBF2; /* Fondo azul claro para el botón */
+    color: #021526; /* Texto oscuro para contraste */
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    border-radius: 50px; /* Bordes redondeados */
+}
+
+.btn-subscribe:hover {
+    background-color: #1E3859; /* Fondo más oscuro al pasar el cursor */
+    color: #ffffff; /* Texto blanco al pasar el cursor */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #72DBF2; /* Línea superior azul claro */
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.9rem; /* Tamaño de texto ligeramente reducido */
+}
+
+.footer-bottom a {
+    color: #72DBF2; /* Color azul claro para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.footer-bottom a:hover {
+    color: #ffffff; /* Texto blanco al pasar el cursor */
+}
