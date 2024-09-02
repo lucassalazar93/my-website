@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Aquí se actualiza Switch por Routes
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import "aos/dist/aos.css"; // Importa el CSS de AOS para las animaciones
 import AOS from "aos"; // Importa AOS para manejar las animaciones
 import "./App.css"; // Importa los estilos personalizados de la aplicación
@@ -48,8 +48,10 @@ import FAQSection from "./FAQSection"; // Sección de preguntas frecuentes
 import ContactSection from "./ContactSection"; // Sección de contacto
 import FooterSection from "./FooterSection"; // Footer
 import "@fortawesome/fontawesome-free/css/all.min.css"; // Importa Font Awesome para los íconos
-import QAPage from './QAPage'; // preguntas y respuestas
+import QAPage from './QAPage'; // Preguntas y respuestas
 import './QAPage.css';
+import DigitalInvitationsPage from './DigitalInvitationsPage'; // Importa la nueva página
+import './DigitalInvitationsPage.css';
 
 function App() {
   const [animateLogo, setAnimateLogo] = useState(false);
@@ -63,37 +65,36 @@ function App() {
 
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
-      // Cambia la clase de la navbar cuando se hace scroll
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
+      // Verifica que navbar exista antes de manipularlo
+      if (navbar) {
+        // Cambia la clase de la navbar cuando se hace scroll
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
       }
     };
 
     // Mueve la abeja con el cursor
     const handleMouseMove = (event) => {
       const beeElement = document.getElementById("bee");
-    
+
       if (beeElement) { // Verificar si el elemento existe
         const offsetX = 50; // Ajusta este valor para mover la abeja en el eje X
         const offsetY = 50; // Ajusta este valor para mover la abeja en el eje Y
-    
+
         const x = event.clientX + offsetX;
         const y = event.clientY + offsetY;
-    
+
         // Usa requestAnimationFrame para un movimiento más suave
         window.requestAnimationFrame(() => {
           beeElement.style.transform = `translate(${x}px, ${y}px)`;
         });
       }
     };
-    
-    // Añade el listener de evento
-    window.addEventListener("mousemove", handleMouseMove);
-    
 
-    // Añade los event listeners para scroll y movimiento del mouse
+    // Añade los event listeners
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
@@ -162,6 +163,12 @@ function App() {
                             <a className="dropdown-item" href="#">
                               <i className="fas fa-paint-brush"></i> Diseño Gráfico
                             </a>
+                          </li>
+                          {/* Aquí se agrega el enlace a la página de Invitaciones Digitales */}
+                          <li>
+                            <Link className="dropdown-item" to="/invitaciones-digitales">
+                              <i className="fas fa-envelope"></i> Invitaciones Digitales
+                            </Link>
                           </li>
                           <li>
                             <Link className="dropdown-item" to="/qa">
@@ -468,11 +475,12 @@ function App() {
                           tiempo, llega a más personas, y asegura que tu día especial
                           comience con un toque moderno.
                         </p>
-                        <a href="/servicio-1" className="btn btn-service">
+                        <Link to="/invitaciones-digitales#matrimonio" className="btn btn-service">
                           Más Información
-                        </a>
+                        </Link>
                       </div>
                     </div>
+
                     <div className="col-md-4 text-center mb-4">
                       <div className="service-box">
                         <img
@@ -487,11 +495,12 @@ function App() {
                           quince años. Sorprende a tus amigos y familia desde el primer
                           clic.
                         </p>
-                        <a href="/servicio-2" className="btn btn-service">
+                        <Link to="/invitaciones-digitales#quinceaneras" className="btn btn-service">
                           Más Información
-                        </a>
+                        </Link>
                       </div>
                     </div>
+
                     <div className="col-md-4 text-center mb-4">
                       <div className="service-box">
                         <img
@@ -505,12 +514,14 @@ function App() {
                           tradición y la modernidad. Fácil de compartir y recordar, una
                           invitación digital asegura que cada detalle sea perfecto.
                         </p>
-                        <a href="/servicio-3" className="btn btn-service">
+                        <Link to="/invitaciones-digitales#primera-comunion" className="btn btn-service">
                           Más Información
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
+
+                  {/* Aquí termina la sección de servicios adicionales */}
                 </div>
               </section>
 
@@ -797,6 +808,7 @@ function App() {
             </div>
           } />
           <Route path="/qa" element={<QAPage />} />
+          <Route path="/invitaciones-digitales" element={<DigitalInvitationsPage />} /> {/* Nueva ruta */}
         </Routes>
       </div>
     </Router>
