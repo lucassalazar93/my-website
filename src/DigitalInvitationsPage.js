@@ -1,7 +1,4 @@
-import React from 'react';
-import './DigitalInvitationsPage.css'; // Importa el archivo CSS correspondiente
-import bannerImage from './images/banner-invitacion (2).png'; // Asegúrate de que la ruta sea correcta
-
+import bannerImage from './images/banner-invitacion-2.png'; // Asegúrate de que la ruta sea correcta
 
 const DigitalInvitationsPage = () => {
   return (
@@ -40,4 +37,3 @@ const DigitalInvitationsPage = () => {
 }
 
 export default DigitalInvitationsPage;
-
