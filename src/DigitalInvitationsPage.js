@@ -1,4 +1,5 @@
-import bannerImage from './images/banner-invitacion-2.png'; // Asegúrate de que la ruta sea correcta
+import bannerImage from './images/banner-invitacion (2).png';
+
 
 const DigitalInvitationsPage = () => {
   return (
